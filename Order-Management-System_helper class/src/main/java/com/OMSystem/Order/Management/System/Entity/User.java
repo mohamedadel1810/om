@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name ="User")
+@Table(name ="users")
 @AllArgsConstructor
 @Getter
 @Setter
@@ -38,8 +38,7 @@ public class User {
 
     @Column(name = "password")
     @NotNull(message = "this field cannot be empty")
-    @Min(value = 6, message = "min value is 6")
-    @Max(value = 20, message = "max size is 20")
+    @Size(min = 6, max = 20, message = "password must be between 6 and 20 characters")
     private String password;
 
 
