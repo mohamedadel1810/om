@@ -1,5 +1,6 @@
 package com.OMSystem.Order.Management.System.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,6 +34,7 @@ public class Order {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
+    @JsonIgnore
     private List<OrderItem> items =new ArrayList<>();
 
     public void addItem(OrderItem item) {

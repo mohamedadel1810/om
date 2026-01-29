@@ -1,5 +1,6 @@
 package com.OMSystem.Order.Management.System.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +33,7 @@ public class Product {
     private int stockQuantity;
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private List<OrderItem> orderItems =new ArrayList<>();
 
     public void setId(int id) {
