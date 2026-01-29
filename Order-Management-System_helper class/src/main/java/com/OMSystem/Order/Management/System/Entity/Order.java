@@ -26,8 +26,12 @@ public class Order {
 
 
     @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    @JsonIgnore
     private User user;
+
+    @Column(name = "user_id")
+    private Integer userId;
 
     @OneToMany(
             mappedBy = "order",
