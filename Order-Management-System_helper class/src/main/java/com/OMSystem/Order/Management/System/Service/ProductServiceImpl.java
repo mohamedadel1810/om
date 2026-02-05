@@ -19,13 +19,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ApiResponse<List<Product>> findAll() {
-        List<Product>products =productRepository.findAll();
-        if (products.isEmpty()){
-            return ApiResponse.fail("PRODUCTS_NOT_FOUND",
-                    "products not found");
-        }
-        return ApiResponse.ok(products);
+    public List<Product> findAll() {
+        return productRepository.findAll();
     }
 
     @Override
@@ -43,15 +38,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-//    public Product save(Product product) {
-//        return productRepository.save(product);
-//    }
-    public ApiResponse<Product> save(Product product){
-        if (product==null){
-            return ApiResponse.fail("NO_PRODUCT_ADDED","invalid input");
-        }
-        Product theproduct = productRepository.save(product);
-        return ApiResponse.ok(theproduct);
+    public Product save(Product product) {
+        return productRepository.save(product);
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.OMSystem.Order.Management.System.Service;
 
 import com.OMSystem.Order.Management.System.Entity.OrderItem;
 import com.OMSystem.Order.Management.System.Repo.OrderItemRepository;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,20 +17,8 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
-//    public List<OrderItem> findAll() {
-//        return orderItemRepository.findAll();
-//    }
-    public ApiResponse<List<OrderItem>> findAll(){
-
-        List<OrderItem>orderItems =orderItemRepository.findAll();
-        if (orderItems.isEmpty()){
-
-            return ApiResponse.fail(
-                    "NO_ITEMS_FOUND",
-                    "there are no items"
-            );
-        }
-        return ApiResponse.ok(orderItems);
+    public List<OrderItem> findAll() {
+        return orderItemRepository.findAll();
     }
 
     @Override
@@ -56,15 +43,8 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
-//    public OrderItem save(OrderItem orderItem) {
-//        return orderItemRepository.save(orderItem);
-//    }
-    public ApiResponse<OrderItem>save(OrderItem orderItem){
-        if (orderItem==null){
-            return ApiResponse.fail("NO_ITEM_ADDED","invalid input");
-        }
-        OrderItem theorderItem = orderItemRepository.save(orderItem);
-        return ApiResponse.ok(theorderItem);
+    public OrderItem save(OrderItem orderItem) {
+        return orderItemRepository.save(orderItem);
     }
 
     @Override

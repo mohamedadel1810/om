@@ -18,18 +18,10 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-//    public List<Order> findAll() {
-//        return orderRepository.findAll();
-//    }
-public ApiResponse<List<Order>> findAll(){
-        List<Order> orders=orderRepository.findAll();
-        if (orders.isEmpty()){
-
-            return ApiResponse.fail("ORDERS_NOT_FOUND","There are not any orders");
-        }
-        return ApiResponse.ok(orders);
-
+    public List<Order> findAll() {
+        return orderRepository.findAll();
     }
+
     @Override
     public ApiResponse<Order> findById(int id) {
          Optional<Order> result =orderRepository.findById(id);
@@ -47,16 +39,8 @@ public ApiResponse<List<Order>> findAll(){
     }
 
     @Override
-//    public Order save(Order order) {
-//        return orderRepository.save(order);
-//    }
-    public ApiResponse<Order> save(Order order){
-
-        if (order==null){
-            return ApiResponse.fail("NO_ORDER_IS_ADDED","invalid input");
-        }
-        Order theOrder=orderRepository.save(order);
-        return ApiResponse.ok(theOrder);
+    public Order save(Order order) {
+        return orderRepository.save(order);
     }
 
     @Override

@@ -22,19 +22,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-//    public List<User> findAll() {
-//        return userRepository.findAll();
-//    }
-    public ApiResponse<List<User>> findAll(){
-
-        List<User>users =userRepository.findAll();
-
-        if (users.isEmpty()){
-            return ApiResponse.fail("USER_NOT_FOUND",
-                    "there are no users");
-        }
-        return ApiResponse.ok(users);
-
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
     @Override
@@ -54,18 +43,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-//    public User save(User user) {
-//        return userRepository.save(user);
-//    }
-    public ApiResponse<User> save(User user){
-
-        if (user ==null){
-            return ApiResponse.fail("NO_USER_ADDED","invalid input");
-        }
-        User theuser=userRepository.save(user);
-       return ApiResponse.ok(theuser);
-
-
+    public User save(User user) {
+        return userRepository.save(user);
     }
 
     @Override

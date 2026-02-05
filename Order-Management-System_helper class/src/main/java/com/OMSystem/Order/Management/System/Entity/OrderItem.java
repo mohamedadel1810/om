@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "OrderItem")
 @Getter
@@ -16,7 +18,7 @@ public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "order_id", nullable = false)
@@ -30,18 +32,6 @@ public class OrderItem {
     private int quantity;
 
     @Column(nullable = false)
-    private int price;
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private double price;
 }
 

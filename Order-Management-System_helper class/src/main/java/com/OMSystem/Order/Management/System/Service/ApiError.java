@@ -10,6 +10,4 @@ public class ApiError {
     private String code;
     private String message;
 
-    public ApiError(String success, String message) {
-    }
 }

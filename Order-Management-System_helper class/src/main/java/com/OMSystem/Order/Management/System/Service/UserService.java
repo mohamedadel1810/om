@@ -7,11 +7,11 @@ import java.util.List;
 public interface UserService {
 
 
-    ApiResponse<List<User>> findAll();
+    List<User>findAll();
 
     ApiResponse<User> findById(int userId);
 
-    ApiResponse<User> save(User user);
+    User save(User user);
 
     ApiResponse<Void> deleteById(int userId);
 }

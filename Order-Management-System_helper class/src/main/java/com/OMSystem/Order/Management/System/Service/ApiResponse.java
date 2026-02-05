@@ -2,19 +2,14 @@ package com.OMSystem.Order.Management.System.Service;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 public class ApiResponse<T> {
 
     private boolean success;
     private T data;
     private ApiError error;
-
-    public ApiResponse(boolean b, T data, Object o) {
-    }
 
 
     public static <T> ApiResponse <T> ok(T data){

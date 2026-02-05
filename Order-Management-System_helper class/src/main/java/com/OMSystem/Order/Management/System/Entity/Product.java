@@ -34,8 +34,7 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<OrderItem> orderItems =new ArrayList<>();
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
+
 }
 

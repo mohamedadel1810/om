@@ -18,32 +18,32 @@ public class UserController {
         this.userService=userService;
     }
     @GetMapping
-    public ResponseEntity<ApiResponse<List<User>>>getAll(){
-        return ResponseEntity.ok(userService.findAll());
+    public List<User>getAll(){
+        return userService.findAll();
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/api/users/user{id}")
     public ResponseEntity<ApiResponse<User>> getById(@PathVariable int id){
 
         return ResponseEntity.ok(userService.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<User>> addUser(@RequestBody User user){
-//        user.setId(0);
-         return ResponseEntity.ok( userService.save(user));
-
+    public User addUser(@RequestBody User user){
+        user.setId(0);
+        User newUser =userService.save(user);
+        return newUser;
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse<User>> updateUser(@RequestBody User user ,@PathVariable int id){
-        user.setId(id);
-     return ResponseEntity.ok(userService.save(user));
+    @PutMapping
+    public User updateUser(@RequestBody User user){
+        User theUser = userService.save(user);
+        return theUser;
     }
 
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/api/users/user{id}")
     public ResponseEntity<ApiResponse<Void>>deleteUser(@PathVariable int id){
         return ResponseEntity.ok(userService.deleteById(id));
     }

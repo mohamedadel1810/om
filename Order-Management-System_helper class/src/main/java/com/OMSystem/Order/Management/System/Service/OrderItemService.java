@@ -5,11 +5,11 @@ import com.OMSystem.Order.Management.System.Entity.OrderItem;
 import java.util.List;
 
 public interface OrderItemService {
-    ApiResponse<List<OrderItem>> findAll();
+    List<OrderItem> findAll();
 
     ApiResponse<OrderItem> findById(int id);
 
-    ApiResponse<OrderItem> save(OrderItem orderItem);
+    OrderItem save(OrderItem orderItem);
 
     ApiResponse<Void> deleteById(int id);
 }

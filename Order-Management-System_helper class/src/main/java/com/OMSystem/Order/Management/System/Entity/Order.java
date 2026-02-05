@@ -54,7 +54,5 @@ public class Order {
         this.state = State.CREATED;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 }
